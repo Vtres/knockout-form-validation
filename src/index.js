@@ -162,7 +162,7 @@ function AppViewModel() {
     }
     
     self.submeter = function(){
-        self.Erros = ko.validation.group([self.bairro,self.endereco,self.residencia,self.cidade, self.estado]);
+        self.Erros = ko.validation.group([self.nome,self.sobrenome,self.telefone,self.ddd, self.cep,self.bairro,self.endereco,self.residencia,self.cidade, self.estado]);
         if(self.Erros().length == 0){
             var resultadoFinal = {
                 'Nome': self.nome(),
