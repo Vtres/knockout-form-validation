@@ -1,9 +1,9 @@
 import api from './../api/api.js'
 import css from "./style.css"
 
- api.getCep("99700252").then((result) => {
-  console.log(result)
- })
+//  api.getCep("99700252").then((result) => {
+//   console.log(result)
+//  })
 
 var endereco = document.querySelector("#logradouro");
 endereco.setAttribute("disabled", "disabled");
@@ -145,7 +145,6 @@ function AppViewModel() {
         if(self.Erros().length == 0){
             //alert("Formulário válido");
             api.getCep(recebeCep).then((result) => {
-                console.log(result);
                 dadosApi(result);
             })
             endereco.removeAttribute("disabled");
@@ -154,10 +153,7 @@ function AppViewModel() {
             bairro.removeAttribute("disabled");
             cidade.removeAttribute("disabled");
             estado.removeAttribute("disabled");
-            btnSubmeter.removeAttribute("disabled");
-            
-            
-     
+            btnSubmeter.removeAttribute("disabled");  
         }else{
             self.Erros.showAllMessages();  
         }
@@ -166,11 +162,8 @@ function AppViewModel() {
     }
     
     self.submeter = function(){
-       
-
         self.Erros = ko.validation.group([self.bairro,self.endereco,self.residencia,self.cidade, self.estado]);
         if(self.Erros().length == 0){
-            console.log("sem erros no formulario final")
             var resultadoFinal = {
                 'Nome': self.nome(),
                 'Sobrenome' : self.sobrenome(),
@@ -188,7 +181,6 @@ function AppViewModel() {
             console.log(resultadoFinal);
             
         }else{
-            console.log("temos erro ao clicar")
             self.Erros.showAllMessages();  
         }    
     }
@@ -223,24 +215,5 @@ ko.validation.init();
 ko.applyBindings(vm);
 
 // can be used in the navigation console
-window.appViewModel = vm
+window.appViewModel = vm;
 
-// Activates knockout.js
-
-       // self.submeter = function(){
-                
-            //     if(self.Erros().length == 0){
-            //         var corpoCadastro = document.querySelector(".container-icaro");
-            //         corpoCadastro.hide();
-            //     }else{
-                    
-            //         self.Erros.showAllMessages();  
-            //     }    
-            // }
-//===================================================
-             // self.cidade(cidade.value);
-        // self.bairro(bairro.value);
-        // self.endereco(endereco.value); 
-        // self.residencia(residencia.value);
-        // self.complemento(complemento.value);
-        // self.estado(estado.value);
