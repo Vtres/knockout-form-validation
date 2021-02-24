@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Knockout Form">
+    <meta name="keywords" content="HTML,CSS,JavaScript, Knockout">
+    <meta name="author" content="You Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-icaro col-md-6 p-2">
+        <h3 class="text-center">Cadastro de Usuário</h3>
+        <form class="needs-validation col-md-12" novalidate>
+            <div class="form-row">
+                <div class="col-md-6 mb-6">
+                    <label for="validationCustom01">Nome</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: nome" type="text" class="form-control" id="validationCustom01" placeholder="Nome" required >
+                    </div>
+                    <div data-bind="validationMessage: nome" class=" error">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 mb-6">
+                    <label for="validationCustom02">Sobrenome</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: sobrenome" type="text" class="form-control" id="validationCustom02" placeholder="Sobrenome" value=""
+                        required>
+                    </div>
+                    <div data-bind="validationMessage: sobrenome" class=" error">
+                        O campo Sobrenome é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-2 mb-2">
+                    <label for="validationCustom13">DDD</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: ddd" type="text" class="form-control" id="ddd" placeholder="ddd" value="" required>
+                    </div>
+                    <div data-bind="validationMessage: ddd" class=" error">
+                        O campo DD é obrigatório!
+                    </div>
+                </div>
+                <div class="col-md-10 mb-10">
+                    <label for="validationCustom03">Telefone</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: telefone" type="text" class="form-control" id="validationCustom03" placeholder="Telefone" value=""
+                        required>
+                    </div>
+                    <div data-bind="validationMessage: telefone" class=" error" id="espacamento">
+                        O campo Telefone é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-8 mb-8">
+                    <label for="validationCustom06">Cep</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: cep" type="text" class="form-control" id="validationCustom06" placeholder="xxxxxxxx" required>
+                    </div>
+                    <div data-bind="validationMessage: cep" class=" error">
+                        O campo cep é obrigatório!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label for="validationCustom10" style="color:#fff">CEP</label>
+                    <a data-bind="click: validaCep" class="btn btn-primary form-control" style="color:#fff">Validar CEP</a>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom09">Endereço</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: endereco" type="text" class="form-control" id="logradouro" placeholder="Endereço">
+                    </div>
+                    <div data-bind="validationMessage: endereco" class=" error">
+                        O campo endereço é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom08">Número da Residência</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: residencia" type="text" class="form-control" id="residencia" placeholder="Numero" required>
+                    </div>
+                    <div data-bind="validationMessage: residencia" class=" error">
+                        O campo número da residência é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom11">Complemento (opcional)</label>
+                    <input data-bind = "value: complemento" type="text" class="form-control" id="complementos" placeholder="Complemento">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom07">Bairro</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: bairro" type="text" class="form-control" id="bairro" placeholder="Bairro" required>
+                    </div>
+                    <div data-bind="validationMessage: bairro" class=" error">
+                        O campo bairro é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom04">Cidade</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: cidade" type="text" class="form-control" id="localidade" placeholder="Cidade" required>
+                    </div>
+                    <div data-bind="validationMessage: cidade" class=" error">
+                        O campo cidade é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-12">
+                    <label for="validationCustom05">Estado</label>
+                    <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
+                        <input data-bind = "value: estado" type="text" class="form-control" id="uf" placeholder="Estado" required>
+                    </div>
+                    <div data-bind="validationMessage: estado" class=" error" >
+                        O campo estado é obrigatório!
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button  data-bind="click: submeter" id="btnSubmit" class="btn btn-primary" disabled type="submit">Enviar Formulário</button>
+        </form>
+
+    </div>
+
+    <script src="../assets/js/knockout-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.js"></script>
+    
+</body>
+
+</html>
