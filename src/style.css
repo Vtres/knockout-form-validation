@@ -10,3 +10,7 @@
 #espacamento{
     margin-left: 100px;
 }
+
+.invisivel{
+    display: none;
+}

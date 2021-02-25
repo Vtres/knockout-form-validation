@@ -82,6 +82,10 @@ function AppViewModel() {
     }}).extend({ maxLength:{
         params: 9,
         message: "Espera-se 9 caracters"
+    }}).extend({pattern: {  
+        params: '^[9]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$',
+        message: 'Número de telefone não corresponde ao padrão Brasil'
+         
     }});
 
     // CEP
@@ -141,19 +145,37 @@ function AppViewModel() {
     
     self.validaCep = function(){
         var recebeCep = vm.cep();
-       
+        
         if(self.Erros().length == 0){
             //alert("Formulário válido");
+            console.log("entrou no if")
             api.getCep(recebeCep).then((result) => {
-                dadosApi(result);
+                if(result.erro == true){
+                   
+                    $(".invisivel").show();
+                    endereco.setAttribute("disabled", "disabled");
+                    residencia.setAttribute("disabled", "disabled");
+                    complemento.setAttribute("disabled", "disabled");
+                    bairro.setAttribute("disabled", "disabled");
+                    cidade.setAttribute("disabled", "disabled");
+                    estado.setAttribute("disabled", "disabled");
+                    btnSubmeter.setAttribute("disabled", "disabled");
+                    self.cidade("");
+                    self.estado("");
+                }else{
+                    $(".invisivel").hide();
+                    dadosApi(result);
+                    endereco.removeAttribute("disabled");
+                    residencia.removeAttribute("disabled");
+                    complemento.removeAttribute("disabled");
+                    bairro.removeAttribute("disabled");
+                    cidade.removeAttribute("disabled");
+                    estado.removeAttribute("disabled");
+                    btnSubmeter.removeAttribute("disabled");  
+                }
+                
             })
-            endereco.removeAttribute("disabled");
-            residencia.removeAttribute("disabled");
-            complemento.removeAttribute("disabled");
-            bairro.removeAttribute("disabled");
-            cidade.removeAttribute("disabled");
-            estado.removeAttribute("disabled");
-            btnSubmeter.removeAttribute("disabled");  
+           
         }else{
             self.Erros.showAllMessages();  
         }

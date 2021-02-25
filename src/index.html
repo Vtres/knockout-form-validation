@@ -42,7 +42,7 @@
                 <div class="col-md-2 mb-2">
                     <label for="validationCustom13">DDD</label>
                     <div data-bind="validationOptions: { insertMessages: false, decorateInputElement: false}">
-                        <input data-bind = "value: ddd" type="text" class="form-control" id="ddd" placeholder="ddd" value="" required>
+                        <input data-bind = "value: ddd" type="text" class="form-control" id="dddd" placeholder="ddd" value="" required>
                     </div>
                     <div data-bind="validationMessage: ddd" class=" error">
                         O campo DD é obrigatório!
@@ -68,6 +68,7 @@
                     <div data-bind="validationMessage: cep" class=" error">
                         O campo cep é obrigatório!
                     </div>
+                    <span class="error invisivel text-center">CEP INVALIDO</span>
                 </div>
                 <div class="col-md-4 mb-4">
                     <label for="validationCustom10" style="color:#fff">CEP</label>
@@ -140,7 +141,9 @@
         </form>
 
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+            crossorigin="anonymous"></script>
     <script src="../assets/js/knockout-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.js"></script>
