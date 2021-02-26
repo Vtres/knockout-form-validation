@@ -211,26 +211,8 @@ function AppViewModel() {
             self.Erros.showAllMessages();  
         }    
     }
-    const dadosApi = (result)=>{
-               
-        
-
-        // for(const campo in result){
-        //    if(document.querySelector("#"+campo)){
-        //         if(result[campo]!= ""){
-        //             adicionaAtributo(campo);
-        //         }
-        //     }
-        // }
-    }
 
 };
-
- function adicionaAtributo(campo){
-     var aux = campo;
-    //  self.aux(false);
-    // document.querySelector("#"+campo).setAttribute("disabled", "disabled");
- }
 
 
 const vm = new AppViewModel();
@@ -242,8 +224,3 @@ vm.isValid = ko.computed(function(){
 })
 
 ko.applyBindings(vm);
-
-
-// can be used in the navigation console
-
-
